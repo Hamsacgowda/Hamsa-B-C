@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hamsa B C | Software & AI Developer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hamsa B C - Software Developer specializing in Python, AI, and Full Stack Development">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ========================================
+   DESIGN SYSTEM & VARIABLES
+   Premium color palette with refined tones
+   ======================================== */
+:root {
+  --bg-primary: #fafbfc;
+  --bg-secondary: #f3f4f6;
+  --card-bg: #ffffff;
+
+  /* Refined color palette - professional blue + warm gold */
+  --primary-700: #1e3a8a;
+  --primary-600: #2563eb;
+  --primary-500: #3b82f6;
+  --accent-600: #d97706;
+  --accent-500: #f59e0b;
+  --accent-100: #fef3c7;
+
+  /* Text hierarchy */
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+
+  /* Shadows for depth */
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -1px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 10px 10px -5px rgba(15, 23, 42, 0.04);
+  --shadow-hover: 0 25px 50px -12px rgba(30, 58, 138, 0.15);
+
+  /* Spacing system (8px base) */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Border radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* ========================================
+   BASE STYLES & RESET
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 16px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background decoration - subtle gradient orbs */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::before {
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+  top: -300px;
+  right: -200px;
+}
+
+body::after {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(135deg, var(--accent-500), var(--accent-600));
+  bottom: -250px;
+  left: -150px;
+}
+
+/* ========================================
+   HERO SECTION
+   Premium hero with improved hierarchy
+   ======================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 900px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.hero h1 span {
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero h2 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 600;
+  color: var(--accent-600);
+  margin-bottom: var(--space-lg);
+  letter-spacing: -0.01em;
+}
+
+.hero p {
+  max-width: 680px;
+  margin: 0 auto var(--space-xl);
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 1rem 2.5rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.0625rem;
+  text-decoration: none;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-700), var(--primary-600));
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.hero-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.hero-cta:hover::before {
+  opacity: 1;
+}
+
+.hero-cta span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================
+   SECTION LAYOUT
+   Improved spacing and rhythm
+   ======================================== */
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-3xl) var(--space-lg);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  margin-bottom: var(--space-2xl);
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  position: relative;
+  padding-bottom: var(--space-md);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-600), var(--accent-500));
+  border-radius: var(--radius-full);
+}
+
+/* ========================================
+   CARD SYSTEM
+   Premium cards with refined shadows
+   ======================================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.card {
+  background: var(--card-bg);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle gradient overlay on hover */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.02), rgba(245, 158, 11, 0.02));
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-700);
+  margin-bottom: var(--space-md);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.card p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card li {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.8;
+  padding-left: var(--space-md);
+  position: relative;
+  margin-bottom: var(--space-xs);
+}
+
+.card li::before {
+  content: '●';
+  position: absolute;
+  left: 0;
+  color: var(--accent-500);
+  font-size: 0.75rem;
+}
+
+/* ========================================
+   PROJECT TAG
+   Enhanced tag design
+   ======================================== */
+.tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--accent-100), rgba(245, 158, 11, 0.15));
+  color: var(--accent-600);
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* ========================================
+   ABOUT SECTION
+   Full-width featured card
+   ======================================== */
+.about-card {
+  background: var(--card-bg);
+  padding: var(--space-2xl);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: var(--shadow-lg);
+}
+
+.about-card p {
+  font-size: clamp(1.0625rem, 2vw, 1.1875rem);
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.about-card strong {
+  color: var(--primary-700);
+  font-weight: 700;
+}
+
+/* ========================================
+   CONTACT SECTION
+   ======================================== */
+.contact-card {
+  background: linear-gradient(135deg, var(--card-bg), rgba(243, 244, 246, 0.5));
+  padding: var(--space-2xl);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.875rem 1.75rem;
+  border-radius: var(--radius-full);
+  background: var(--card-bg);
+  color: var(--primary-600);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 2px solid rgba(37, 99, 235, 0.2);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-link:hover {
+  background: var(--primary-600);
+  color: #ffffff;
+  border-color: var(--primary-600);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+footer {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+  background: var(--card-bg);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   Mobile-first approach with breakpoints
+   ======================================== */
+
+/* Large tablets and small desktops */
+@media (max-width: 1024px) {
+  section {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 90vh;
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  section {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .section-title {
+    margin-bottom: var(--space-xl);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .card {
+    padding: var(--space-lg);
+  }
+
+  .about-card {
+    padding: var(--space-xl);
+  }
+
+  .contact-card {
+    padding: var(--space-xl);
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  :root {
+    font-size: 15px;
+  }
+
+  .hero {
+    text-align: left;
+    padding: var(--space-md);
+    min-height: 85vh;
+  }
+
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .hero h2 {
+    font-size: 1.125rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-cta {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  section {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .card {
+    padding: var(--space-lg);
+  }
+
+  .about-card {
+    padding: var(--space-lg);
+  }
+
+  .contact-card {
+    padding: var(--space-lg);
+    flex-direction: column;
+  }
+
+  .contact-link {
+    width: 100%;
+    justify-content: center;
+  }
+
+  body::before,
+  body::after {
+    display: none;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY & PRINT
+   ======================================== */
+
+/* Focus states for keyboard navigation */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--primary-500);
+  outline-offset: 3px;
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+  }
+
+  .hero {
+    min-height: auto;
+    page-break-after: always;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+
+  .card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO SECTION -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>Hello, I'm <span>Hamsa B C</span></h1>
+    <h2>Software Developer • Python • AI • Full Stack</h2>
+    <p>
+      Engineering student with strong foundations in Python, AI tools,
+      and full-stack development. Passionate about building intelligent,
+      scalable, real-world applications.
+    </p>
+    <a href="#projects" class="hero-cta">
+      <span>View Projects</span>
+    </a>
+  </div>
+</div>
+
+<!-- ABOUT SECTION -->
+<section id="about">
+  <h2 class="section-title">About Me</h2>
+  <div class="about-card">
+    <p>
+      I am a B.E. Information Science student (VTU, 2026) with a CGPA of
+      <strong>9.03</strong>. I enjoy working on AI-powered systems,
+      LLM-based applications, and modern full-stack web solutions.
+    </p>
+  </div>
+</section>
+
+<!-- SKILLS SECTION -->
+<section id="skills">
+  <h2 class="section-title">Skills</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Programming</h3>
+      <ul>
+        <li>Python</li>
+        <li>JavaScript</li>
+        <li>C (Basics)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>AI & Data</h3>
+      <ul>
+        <li>ChatGPT & Gemini APIs</li>
+        <li>Prompt Engineering</li>
+        <li>Data Parsing & Cleaning</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Web Development</h3>
+      <ul>
+        <li>HTML, CSS</li>
+        <li>React, Next.js</li>
+        <li>Node.js, Express</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Tools & Databases</h3>
+      <ul>
+        <li>MongoDB, MySQL</li>
+        <li>Git, GitHub</li>
+        <li>VS Code, UiPath</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+  <div class="grid">
+
+    <div class="card">
+      <span class="tag">AI • LLM</span>
+      <h3>AI Mock Interview System</h3>
+      <p>
+        Intelligent interview platform using LLMs,
+        real-time feedback, TTS/STT, and admin dashboards.
+      </p>
+    </div>
+
+    <div class="card">
+      <span class="tag">Deep Learning</span>
+      <h3>Brain Tumor Detection</h3>
+      <p>
+        CNN-based medical imaging classification
+        for meningiomas vs gliomas.
+      </p>
+    </div>
+
+    <div class="card">
+      <span class="tag">MERN Stack</span>
+      <h3>Health Record Management System</h3>
+      <p>
+        Secure patient record system with authentication
+        and CRUD operations.
+      </p>
+    </div>
+
+    <div class="card">
+      <span class="tag">Productivity</span>
+      <h3>Smart Task Organizer</h3>
+      <p>
+        Collaborative task manager with priority,
+        filtering, and clean UI.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <div class="contact-card">
+    <a href="mailto:hammugowda148@gmail.com" class="contact-link">📧 Email</a>
+    <a href="https://www.linkedin.com/in/hamsa-b-c-032b43222" target="_blank" rel="noopener noreferrer" class="contact-link">🔗 LinkedIn</a>
+    <a href="https://github.com/Hamsacgowda" target="_blank" rel="noopener noreferrer" class="contact-link">💻 GitHub</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 Hamsa B C • Open to Internships & Full-Time Roles
+</footer>
+
+</body>
+</html>
